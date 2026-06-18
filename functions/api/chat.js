@@ -1,5 +1,5 @@
-export async function onRequestPost() {
+export async function onRequestPost({ env }) {
   return Response.json({
-    reply: "TEST SUCCESS"
+    hasKey: !!env.OPENAI_API_KEY
   });
 }
