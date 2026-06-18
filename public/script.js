@@ -16,7 +16,11 @@ async function send() {
       },
       body: JSON.stringify({ message })
     });
-
+if (!res.ok) {
+  const errorText = await res.text();
+  chat.innerHTML += `<div class="msg bot">Error: ${errorText}</div>`;
+  return;
+}
     const data = await res.json();
 
     chat.innerHTML += `<div class="msg bot">AI: ${data.reply}</div>`;
