@@ -8,14 +8,21 @@ async function send() {
   chat.innerHTML += `<div class="msg user">You: ${message}</div>`;
   input.value = "";
 
-  const res = await fetch("/api/chat", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message })
-  });
+  try {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message })
+    });
 
-  const data = await res.json();
+    const data = await res.json();
 
-  chat.innerHTML += `<div class="msg bot">AI: ${data.reply}</div>`;
-  chat.scrollTop = chat.scrollHeight;
+    chat.innerHTML += `<div class="msg bot">AI: ${data.reply}</div>`;
+    chat.scrollTop = chat.scrollHeight;
+
+  } catch (err) {
+    chat.innerHTML += `<div class="msg bot">Error: ${err.message}</div>`;
+  }
 }
