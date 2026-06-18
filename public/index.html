@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TalkiAI Chatbot</title>
+  <style>
+    body { font-family: Arial; background:#0f172a; color:white; margin:0; }
+    .container { max-width:700px; margin:0 auto; padding:20px; }
+    #chat { height:70vh; overflow-y:auto; border:1px solid #334155; padding:10px; border-radius:10px; }
+    .msg { margin:10px 0; }
+    .user { color:#60a5fa; }
+    .bot { color:#34d399; }
+    input { width:80%; padding:10px; }
+    button { padding:10px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>TalkiAI 🤖</h2>
 
+    <div id="chat"></div>
+
+    <input id="input" placeholder="Ask something..." />
+    <button onclick="send()">Send</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
