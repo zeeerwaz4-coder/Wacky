@@ -1,2 +1,2 @@
 # Wacky
-Ai chatbotvweb app using Openai and Cloudflare Pages
+Ai chatbot web app using Openai and Cloudflare Pages
