@@ -1,5 +1,5 @@
-export async function onRequestPost({ request }) {
+export async function onRequestPost() {
   return Response.json({
-    reply: "backend works"
+    reply: "TEST RESPONSE FROM BACKEND"
   });
 }
