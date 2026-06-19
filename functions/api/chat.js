@@ -1,6 +1,8 @@
-export async function onRequestPost({ env }) {
+export async function onRequestPost({ request }) {
+  const body = await request.json();
+  const message = body.message;
+
   return Response.json({
-    envKeys: Object.keys(env || {}),
-    openai: env?.OPENAI_API_KEY ?? "MISSING"
+    reply: "You said: " + message
   });
 }
