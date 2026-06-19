@@ -21,7 +21,13 @@ if (!res.ok) {
   chat.innerHTML += `<div class="msg bot">Error: ${errorText}</div>`;
   return;
 }
-    const data = await res.json();
+    let data;
+try {
+  data = await res.json();
+} catch (e) {
+  chat.innerHTML += `<div class="msg bot">Invalid JSON response</div>`;
+  return;
+}
 
     chat.innerHTML += `<div class="msg bot">AI: ${data.reply}</div>`;
     chat.scrollTop = chat.scrollHeight;
