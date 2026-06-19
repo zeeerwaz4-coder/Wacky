@@ -15,9 +15,9 @@ export async function onRequestPost({ request, env }) {
     })
   });
 
-  const data = await response.json();
+  const text = await response.text();
 
-  return Response.json({
-    reply: data?.choices?.[0]?.message?.content || "No AI response"
+  return new Response(text, {
+    headers: { "Content-Type": "application/json" }
   });
 }
