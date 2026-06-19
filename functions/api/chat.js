@@ -17,7 +17,6 @@ export async function onRequestPost({ request, env }) {
 
   const data = await response.json();
 
-  return Response.json({
-    reply: data?.choices?.[0]?.message?.content || "No AI response"
-  });
+  // 👇 THIS is the important part
+  return Response.json(data);
 }
