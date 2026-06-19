@@ -1,22 +1,5 @@
-export async function onRequestPost({ request, env }) {
-  const body = await request.json();
-
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${env.OPENAI_API_KEY}`
-    },
-    body: JSON.stringify({
-      model: "gpt-4o-mini",
-      messages: [
-        { role: "user", content: body.message }
-      ]
-    })
+export async function onRequestPost({ request }) {
+  return Response.json({
+    reply: "backend works"
   });
-
-  const data = await response.json();
-
-  // 👇 THIS is the important part
-  return Response.json(data);
 }
